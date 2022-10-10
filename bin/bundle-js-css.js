@@ -11,7 +11,7 @@ let argv = optimist
     .options('disable-beautify', { boolean: true, describe: 'Leave the concatenated files as-is (might be ugly!)' })
     .usage(
         '\n' +
-        'Usage: bundle-js ./path/to/entryfile.js [-o ./path/to/outputfile] [-p]\n' +     // 80 character line width limit here
+        'Usage: bundle-js-css ./path/to/entryfile.js [-o ./path/to/outputfile] [-p]\n' +     // 80 character line width limit here
         '       [--disable-beautify]'
     )
     .argv
