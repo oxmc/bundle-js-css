@@ -1,34 +1,58 @@
-# bundle-js
+# bundle-js-css
 
-Bundle your inter-dependent Javascript files in the correct order
+Bundle your inter-dependent Javascript and css files in the correct order
 
 Install:
 
-    npm install -g bundle-js
+    npm install -g bundle-js-css
 
 ## What It Does
 
-Concatenates your Javascript files.
+Concatenates your Javascript and css files.
 
-Just add require comments (`// require ./dependecy.js`) or (`// include ./inc/smallfile.js`) to your files and bundle-js will automatically concatenate every file that is needed by every file into one single bundled script.
+## For JS
+Just add require comments (`// requirejs ./dependecy.js`) or (`// includejs ./inc/smallfile.js`) to your files and bundle-js-css will automatically concatenate every file that is needed by every file into one single bundled script.
 
-It uses [topological sorting](https://en.wikipedia.org/wiki/Topological_sorting) to determine the order in which to concatenate so you don't have to worry about having anything undefined. However, as a result of this, bundle-js does **NOT support circular dependencies**.
+It uses [topological sorting](https://en.wikipedia.org/wiki/Topological_sorting) to determine the order in which to concatenate so you don't have to worry about having anything undefined. However, as a result of this, bundle-js-css does **NOT support circular dependencies**.
 
 The output is a single JS script that can be written to an output file.
 
+## For CSS
+Just add require comments (`// requirecss ./dependecy.js`) or (`// includecss ./inc/smallfile.js`) to your files and bundle-js-css will automatically concatenate every file that is needed by every file into one single bundled css file.
+
+It uses [topological sorting](https://en.wikipedia.org/wiki/Topological_sorting) to determine the order in which to concatenate so you don't have to worry about having anything undefined. However, as a result of this, bundle-js-css does **NOT support circular dependencies**.
+
+The output is a single CSS files that can be written to an output file.
+
 ## Usage
+
+## For JS
 
 Within your javascript files you can use comments to indicate what external files are needed by the current file.
 
-+ Using `// require ./path/to/file.js` ensures that the "required" file comes before the current file in the final concatenated output. Use this when developing multi-file Javascript without any module loaders.
-+ Using `// include ./path/to/file.js` includes the entirety of the file directly at the location of the comment. Useful for including small snippets of code within other code. *Note: a file that is `require`-ed within a file that is `include`-ed, will still be placed at the top level of the bundled file. See `include_b` to avoid this behavior.*
-+ Using `// include_b ./path/to/file.js` includes the entirety of the file **pre-bundled** directly at the location of the comment. This is useful for wrapping an entire project in something such as an [IIFE](http://benalman.com/news/2010/11/immediately-invoked-function-expression/) or to compile to a specific target such as for the browser or a node module.
++ Using `// requirejs ./path/to/file.js` ensures that the "required" file comes before the current file in the final concatenated output. Use this when developing multi-file Javascript without any module loaders.
++ Using `// includejs ./path/to/file.js` includes the entirety of the file directly at the location of the comment. Useful for including small snippets of code within other code. *Note: a file that is `require`-ed within a file that is `include`-ed, will still be placed at the top level of the bundled file. See `include_b` to avoid this behavior.*
++ Using `// include_bjs ./path/to/file.js` includes the entirety of the file **pre-bundled** directly at the location of the comment. This is useful for wrapping an entire project in something such as an [IIFE](http://benalman.com/news/2010/11/immediately-invoked-function-expression/) or to compile to a specific target such as for the browser or a node module.
 
 **Circular dependencies are not allowed (neither for requires or includes).**
 
 In order to require or include a file, you must begin the file path with `./`, `../`, or `/`. Otherwise, it will search for a node module. This is because file resolution is done using the [resolve module](https://www.npmjs.com/package/resolve), which implements the behavior of Node's `require.resolve()` ([more information here](https://nodejs.org/api/modules.html#modules_all_together)).
 
-*Note: These are not case sensitive (ie. you can freely use `REQUIRE`, `INCLUDE`, `INCLUDE_B`)*
+*Note: These are not case sensitive (ie. you can freely use `REQUIREJS`, `INCLUDEJS`, `INCLUDE_BJS`)*
+
+## For CSS
+
+Within your javascript files you can use comments to indicate what external files are needed by the current file.
+
++ Using `// requirejs ./path/to/file.css` ensures that the "required" file comes before the current file in the final concatenated output. Use this when developing multi-file Javascript without any module loaders.
++ Using `// includejs ./path/to/file.css` includes the entirety of the file directly at the location of the comment. Useful for including small snippets of code within other code. *Note: a file that is `require`-ed within a file that is `include`-ed, will still be placed at the top level of the bundled file. See `include_b` to avoid this behavior.*
++ Using `// include_bjs ./path/to/file.css` includes the entirety of the file **pre-bundled** directly at the location of the comment. This is useful for wrapping an entire project in something such as an [IIFE](http://benalman.com/news/2010/11/immediately-invoked-function-expression/) or to compile to a specific target such as for the browser or a node module.
+
+**Circular dependencies are not allowed (neither for requires or includes).**
+
+In order to require or include a file, you must begin the file path with `./`, `../`, or `/`. Otherwise, it will search for a node module. This is because file resolution is done using the [resolve module](https://www.npmjs.com/package/resolve), which implements the behavior of Node's `require.resolve()` ([more information here](https://nodejs.org/api/modules.html#modules_all_together)).
+
+*Note: These are not case sensitive (ie. you can freely use `REQUIRECSS`, `INCLUDECSS`, `INCLUDE_BCSS`)*
 
 ### Options:
 
@@ -49,7 +73,7 @@ In order to require or include a file, you must begin the file path with `./`, `
 
 ### Programmatic:
 
-    const bundle = require('bundle-js')
+    const bundle = require('bundle-js-css')
     let output = bundle({ entry : './index.js' })
 
 Configuration options:
