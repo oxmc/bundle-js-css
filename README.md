@@ -42,7 +42,7 @@ In order to require or include a file, you must begin the file path with `./`, `
 
 ## For CSS
 
-Within your javascript files you can use comments to indicate what external files are needed by the current file.
+Within your css files you can use comments to indicate what external files are needed by the current file.
 
 + Using `// requirejs ./path/to/file.css` ensures that the "required" file comes before the current file in the final concatenated output. Use this when developing multi-file Javascript without any module loaders.
 + Using `// includejs ./path/to/file.css` includes the entirety of the file directly at the location of the comment. Useful for including small snippets of code within other code. *Note: a file that is `require`-ed within a file that is `include`-ed, will still be placed at the top level of the bundled file. See `include_b` to avoid this behavior.*
