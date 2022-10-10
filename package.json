@@ -1,18 +1,19 @@
 {
-  "name": "bundle-js",
-  "version": "1.0.3",
-  "description": "Bundle your inter-dependent Javascript files in the correct order",
+  "name": "bundle-js-css",
+  "version": "1.0.0",
+  "description": "Bundle your inter-dependent Javascript and css files in the correct order",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hugabor/bundle-js.git"
+    "url": "git+https://github.com/oxmc/bundle-js-css.git"
   },
   "bin": {
-    "bundle-js": "./bin/bundle-js.js"
+    "bundle-js": "./bin/bundle-js-css.js"
   },
   "keywords": [
     "bundle",
     "js",
+    "css",
     "browser",
     "module",
     "package",
@@ -24,17 +25,18 @@
     "require",
     "include"
   ],
-  "author": "hugabor",
+  "author": "oxmc",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hugabor/bundle-js/issues"
+    "url": "https://github.com/oxmc/bundle-js-css/issues"
   },
-  "homepage": "https://github.com/hugabor/bundle-js#readme",
+  "homepage": "https://github.com/oxmc/bundle-js-css#readme",
   "engines": {
     "node": ">=6.8.1"
   },
   "dependencies": {
     "js-beautify": "^1.6.4",
+    "minify": "^9.1.0",
     "optimist": "^0.6.1",
     "resolve": "^1.4.0"
   }
