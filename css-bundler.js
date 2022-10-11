@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const resolve = require('resolve')
-const minify = require('minify');
+const { minify } = require('csso');
 
 
 const ENCODING = 'utf-8'
@@ -167,10 +167,10 @@ function bundle(entryfilepath, options = {}) {
     let bundled = concatFiles(order)
 
     if (!(options.disablebeautify == true)) {
-        bundled = minify.css(bundled);
+        bundled = minify(bundled).css;
     }
 
     return bundled
 }
 
-module.exports = { bundle: bundle }
+module.exports = { bundlecss: bundle }

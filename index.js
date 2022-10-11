@@ -5,7 +5,7 @@ const globals = require('./globals.js')
 const bundlercss = require('./css-bundler.js')
 const bundlerjs = require('./js-bundler.js')
 
-const bunlde = {
+const bundle = {
   "js": function (options = {}) {
 
     if (!options.entry) {
@@ -13,7 +13,7 @@ const bunlde = {
     }
 
     let entryfilepath = path.normalize(path.resolve(process.cwd(), options.entry))
-    let bundled = bundlerjs.bundle(entryfilepath, options)
+    let bundled = bundlerjs.bundlejs(entryfilepath, options)
 
     if (options.dest) {
         let dest = path.normalize(path.resolve(process.cwd(), options.dest || globals.DEFAULT_OUTPUT_FILE))
@@ -41,7 +41,7 @@ const bunlde = {
     }
 
     let entryfilepath = path.normalize(path.resolve(process.cwd(), options.entry))
-    let bundled = bundlercss.bundle(entryfilepath, options)
+    let bundled = bundlercss.bundlecss(entryfilepath, options)
 
     if (options.dest) {
         let dest = path.normalize(path.resolve(process.cwd(), options.dest || globals.DEFAULT_OUTPUT_FILE))

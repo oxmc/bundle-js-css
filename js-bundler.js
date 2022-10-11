@@ -7,13 +7,13 @@ const beautify = require('js-beautify').js_beautify
 const ENCODING = 'utf-8'
 
 function REQUIRE_REGEX() {
-    return new RegExp(/\/\/+\s*REQUIRE\s+([^\s\n]+)/, "gi")
+    return new RegExp(/\/\/+\s*REQUIREJS\s+([^\s\n]+)/, "gi")
 }
 function INCLUDE_REGEX() {
-    return new RegExp(/\/\/+\s*INCLUDE\s+([^\s\n]+)/, "gi")
+    return new RegExp(/\/\/+\s*INCLUDEJS\s+([^\s\n]+)/, "gi")
 }
 function INCLUDEB_REGEX() {
-    return new RegExp(/\/\/+\s*INCLUDE_?B\s+([^\s\n]+)/, "gi")
+    return new RegExp(/\/\/+\s*INCLUDE_?BJS\s+([^\s\n]+)/, "gi")
 }
 
 
@@ -177,4 +177,4 @@ function bundle(entryfilepath, options = {}) {
     return bundled
 }
 
-module.exports = { bundle: bundle }
+module.exports = { bundlejs: bundle }
