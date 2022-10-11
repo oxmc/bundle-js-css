@@ -80,7 +80,7 @@ In order to require or include a file, you must begin the file path with `./`, `
 
 Configuration options:
 
-    bundle({
+    bundlejs({
         entry : './index.js',
         dest : './bundle.js',
         print : false,
