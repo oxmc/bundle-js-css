@@ -1,3 +1,5 @@
+# The original version of this was made by hugabor as a project named bundle-js
+
 # bundle-js-css
 
 Bundle your inter-dependent Javascript and css files in the correct order
@@ -74,7 +76,7 @@ In order to require or include a file, you must begin the file path with `./`, `
 ### Programmatic:
 
     const bundle = require('bundle-js-css')
-    let output = bundle({ entry : './index.js' })
+    let output = bundlejs({ entry : './index.js' })
 
 Configuration options:
 
@@ -89,7 +91,7 @@ Configuration options:
 
 If in file `A.js` you have
 
-    // require ./B.js
+    // requirejs ./B.js
     console.log(b + ' world!');
 
 and in file `B.js`
@@ -105,7 +107,7 @@ The final output is going to look like this
 
 In file `index.js` you have
 
-    // require ./dep.js
+    // requirejs ./dep.js
     // some code
 
 in file `dep.js`
@@ -115,7 +117,7 @@ in file `dep.js`
 Using `wrapper1.js`
 
     (function() {
-        // include ./index.js
+        // includejs ./index.js
     })();
 
 Will result in
@@ -128,7 +130,7 @@ Will result in
 However, using `wrapper2.js`
 
     (function() {
-        // include_b ./index.js
+        // include_bjs ./index.js
     })();
 
 Will result in
