@@ -166,7 +166,7 @@ function bundle(entryfilepath, options = {}) {
 
     let bundled = concatFiles(order)
 
-    if (!(options.disablebeautify == true)) {
+    if ((options.disablebeautify == true)) {
         bundled = minify(bundled).css;
     }
 
