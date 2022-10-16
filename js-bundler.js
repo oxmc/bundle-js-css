@@ -169,7 +169,7 @@ function bundle(entryfilepath, options = {}) {
     if (!(options.disablebeautify == true)) {
         bundled = beautify(bundled, {
             indent_size: 4,
-            end_with_newline: true,
+            end_with_newline: false,
             preserve_newlines: false
         })
     }
